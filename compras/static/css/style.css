@@ -179,15 +179,24 @@
     margin: 0 auto;
   }
   
+  .shop-container {
+    margin:auto;
+    margin-top: 200px;
+    width: 780px !important;
+  }
+
+  .shop-container .header-image {
+    position: absolute;
+    top:80px;
+    left:50%;
+    right:50%;
+    transform: translate(-50%);
+  }
+
   .container-main {
     width: 100%;  
     min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
+    
     background: #0250c5;
     background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
     background: -o-linear-gradient(bottom, #0250c5, #d43f8d);

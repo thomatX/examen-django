@@ -9,7 +9,10 @@ from .models import Usuario
 
 @login_required(login_url='/login/')
 def index(request):
-    return render(request,'index.html')
+    username = request.user.username
+    usuario = Usuario.objects.get(email=username)
+    print(str(usuario.name))
+    return render(request,'index.html',{'nombre':usuario.name})
 
 def login(request):
     return render(request,'login.html')
