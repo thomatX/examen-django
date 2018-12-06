@@ -25,7 +25,6 @@ urlpatterns = [
     path('shops/create/',views.create_shop,name="create_shop"),
     path('shops/create/new/',views.create_new_shop,name="create_new_shop"),
     path('shopping/',views.shopping,name="shopping"),
-    path('profile/',views.profile,name="profile"),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('api-framework/usuarios/',views.UsuarioList.as_view()),
     path('api-framework/listas/',views.ListaList.as_view()),
