@@ -42,8 +42,24 @@
                         </div>
                         <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30 shop-container">
                             <img class="header-image" src="{% static  "images/shop-header.png" %}">
-                            <h3>Mis Listas</h3>
-                            <p>...</p>
+                            <span class="login100-form-title p-b-55">
+                                Mis Listas
+                            </span>
+                            <div class="actions">
+                                <a href="/lists/create/" class="btn btn-primary">Nueva lista</a>
+                            </div>
+                            <table id="listas-tabla">
+                                <tr>
+                                    <th>Nombre</th><th>Productos</th><th>Comprados</th><th>Presupuestado</th><th>Real</th>
+                                </tr>
+                                {% for i in lists %}
+                                    <script>console.log('{{i}}')</script>
+                                    <tr><td>{{i.name}}</td><td>{{i.total_productos}}</td><td>{{i.total_productos_comprados}}</td><td>{{i.total_presupuestado}}</td><td>{{i.total_real}}</td></tr>
+                                {% endfor %}
+                                <tr>
+
+                                </tr>
+                            </table>
                             
                             <button class="login100-form-btn">Comenzar</button>
                         </div>

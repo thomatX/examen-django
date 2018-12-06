@@ -185,6 +185,28 @@
     width: 780px !important;
   }
 
+  table {
+    width:100%;
+    margin-top:1em;
+}
+table th {
+    font-weight:500;
+}
+table td {
+    font-weight:100;
+    padding:1em 0;
+}
+.actions {
+    text-align:right;
+}
+
+article {
+  margin:1em 0;
+}
+article img {
+  width:100%;
+}
+
   .shop-container .header-image {
     position: absolute;
     top:80px;

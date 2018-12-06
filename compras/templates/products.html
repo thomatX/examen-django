@@ -42,11 +42,33 @@
                         </div>
                         <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30 shop-container">
                             <img class="header-image" src="{% static  "images/shop-header.png" %}">
-                            <h3>Mis Productos</h3>
-                            <p>...</p>
-                            
-                            <button class="login100-form-btn">Comenzar</button>
-                        </div>
+                            <span class="login100-form-title p-b-55">
+                               Mis Productos
+                            </span>
+                            <div class="actions">
+                                    <a href="/products/create/" class="btn btn-primary">Nuevo producto</a>
+                                </div>
+                            {% for i in products %}
+                            <article>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <img src='http://placehold.it/200x200'>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <h4>{{i.name}}</h4>
+                                            <h6>$ {{i.price}}</h6>
+                                            <p>
+                                                    {{i.description}}
+                                            </p>
+                                            <div class="actions">
+                                                <button class="btn btn-danger">Eliminar</button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                            </div>
                 </div>
             </div>
     <!--===============================================================================================-->	
