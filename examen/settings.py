@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'compras',
     'social_django',
     'rest_framework',
+    'pwa',
 ]
 
 REST_FRAMEWORK = {
@@ -161,3 +162,6 @@ LOGIN_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '2055889267787573'
 SOCIAL_AUTH_FACEBOOK_SECRET = '9bc194c5d4d84b4f3ecb5e3d85e69ac3'
+
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'compras/static/js', 'serviceworker.js')
