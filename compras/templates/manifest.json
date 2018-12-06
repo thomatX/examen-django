@@ -3,6 +3,8 @@
   "background_color": "#2196f3",
   "display": "browser",
   "Scope": "/",
+  "name":"Globalshop",
+  "short_name":"GShop",
   "start_url": "/",
   "icons": [
     {
