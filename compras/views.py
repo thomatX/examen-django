@@ -14,6 +14,19 @@ def index(request):
     print(str(usuario.name))
     return render(request,'index.html',{'nombre':usuario.name})
 
+def lists(request):
+    return render(request,'lists.html')
+
+def products(request):
+    return render(request,'products.html')
+
+def shopping(request):
+    return render(request,'shopping.html')
+
+def profile(request):
+    return render(request,'profile.html')
+
+
 def login(request):
     return render(request,'login.html')
 
