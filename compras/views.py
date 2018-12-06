@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,logout, login as auth_login
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from .models import Usuario, Lista
+from .models import Usuario, Lista, Producto
 from random import randint
 
 # Create your views here.
@@ -16,7 +16,11 @@ def index(request):
     return render(request,'index.html',{'nombre':usuario.name})
 
 def lists(request):
-    return render(request,'lists.html')
+    email = request.user.username
+    lists = Lista.objects.filter(email=email)
+    for x in lists:
+        print(str(x))
+    return render(request,'lists.html',{'lists':lists})
 
 def create_list(request):
     return render(request,'create_list.html')
@@ -25,10 +29,17 @@ def create_product(request):
     return render(request,'create_product.html')
 
 def products(request):
-    return render(request,'products.html')
+    email = request.user.username
+    products = Producto.objects.filter(email=email)
+    for x in products:
+        print(str(x))
+    return render(request,'products.html',{'products':products})
 
 def shopping(request):
-    return render(request,'shopping.html')
+    products = Producto.objects.all()
+    for x in products:
+        print(str(products))
+    return render(request,'shopping.html',{'products':products})
 
 def profile(request):
     return render(request,'profile.html')
@@ -80,7 +91,24 @@ def create_new_list(request):
         return HttpResponse('<script>alert("Ha ocurrido un error, intenta nuevamente!"); window.location.href="/lists/create/";</script>')
 
 def create_new_product(request):
-    return False
+    try:
+        id_pk = randint(0,9999999)
+        print(str(id_pk))
+        name = request.POST.get('name')
+        print(name)
+        description = request.POST.get('description')
+        print(description)
+        price = request.POST.get('price')
+        print(price)
+        email = request.user.username
+        print(email)
+        product = Producto(id_pk = id_pk,name = name, description = description, price = price, email = email)
+        product.save()
+        return HttpResponse('<script>alert("Tu producto ha sido añadido correctamente!"); window.location.href="/products/";</script>')
+    except Exception as ex:
+        print("Error: "+str(ex))
+        return HttpResponse('<script>alert("Ha ocurrido un error, intenta nuevamente!"); window.location.href="/products/create/";</script>')
+
 
 
 @login_required(login_url='/login/')
