@@ -23,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static  "css/util.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static  "css/style.css" %}">
     <!--===============================================================================================-->
-    <title>Inicio :: Compras</title>
+    <title>Crear Lista :: Compras</title>
 </head>
 <body>
         <div class="limiter">
@@ -41,14 +41,59 @@
                         </div>
                         <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30 shop-container">
                             <img class="header-image" src="{% static  "images/shop-header.png" %}">
-                            <h3>Bienvenido!</h3>
-                            <p>Con <strong>GlobalShop</strong> puedes organizar tus compras de una manera rápida y sencilla, solo debes seleccionar los productos que desees y agregarlos a tus listas previamente creadas!</p>
-                            <p>Puedes elegir distintos productos de distintas tiendas que tenemos para ti. Además, puedes crear tu propia tienda y comenzar a vender tus productos dentro de nuestra plataforma.</p>
-                            </br>
-                            <p>¡Los usuarios podrán agregar a sus listas tus productos, y tu podrás añadir los de ellos a las tuyas!</p>
-                            </br>
-                            <p>¿Que esperas? ¡Comienza organizando tus compras ahora!</p>
-                            <button class="login100-form-btn">Comenzar</button>
+                            <form action="/shops/create/new/" method="POST" class="login100-form validate-form">
+                                {% csrf_token %}
+                                <span class="login100-form-title p-b-55">
+                                    Crear tienda
+                                </span>
+            
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere un nombre válido">
+                                    <input class="input100" type="text" name="name" maxlength="40" placeholder="Nombre tienda">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                            <span class="lnr lnr-pencil"></span>
+                                    </span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere un nombre válido">
+                                    <input class="input100" type="text" name="sucursal" maxlength="40" placeholder="Nombre sucursal">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                            <span class="lnr lnr-pencil"></span>
+                                    </span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere una dirección válida">
+                                    <input class="input100" type="text" name="adress" maxlength="40" placeholder="Direccion">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                            <span class="lnr lnr-pencil"></span>
+                                    </span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere una ciudad válida">
+                                    <input class="input100" type="text" name="city" maxlength="40" placeholder="Ciudad">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                            <span class="lnr lnr-pencil"></span>
+                                    </span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere una región válida">
+                                    <input class="input100" type="text" name="region" maxlength="40" placeholder="Región">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                            <span class="lnr lnr-pencil"></span>
+                                    </span>
+                                </div>
+
+                                
+                                <div class="container-login100-form-btn p-t-25">
+                                    <button class="login100-form-btn">
+                                        Agregar tienda
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                 </div>
             </div>

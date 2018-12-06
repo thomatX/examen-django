@@ -30,7 +30,7 @@
             
                 <div class="container-main">
                         <div class="header">
-                            <h2><span class="lnr lnr-cart"></span>TextLogo</h2>
+                            <h2><span class="lnr lnr-cart"></span>GlobalShop</h2>
                             <div class="menu">
                                 <a href="/">Inicio</a>
                                 <a href="/lists/">Mis listas</a>
@@ -43,9 +43,11 @@
                             <img class="header-image" src="{% static  "images/shop-header.png" %}">
                             <form action="/products/create/new/" method="POST" class="login100-form validate-form">
                                 {% csrf_token %}
+
                                 <span class="login100-form-title p-b-55">
                                     Crear producto
                                 </span>
+
             
                                 <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere un nombre válido">
                                     <input class="input100" type="text" name="name" placeholder="Nombre producto">

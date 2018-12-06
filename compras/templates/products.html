@@ -30,7 +30,7 @@
             
                 <div class="container-main">
                         <div class="header">
-                            <h2><span class="lnr lnr-cart"></span>TextLogo</h2>
+                            <h2><span class="lnr lnr-cart"></span>GlobalShop</h2>
                             <div class="menu">
                                 <a href="/">Inicio</a>
                                 <a href="/lists/">Mis listas</a>
@@ -44,9 +44,10 @@
                             <span class="login100-form-title p-b-55">
                                Mis Productos
                             </span>
+                            {% if tienda %}
                             <div class="actions">
                                     <a href="/products/create/" class="btn btn-primary">Nuevo producto</a>
-                                </div>
+                            </div>
                             {% for i in products %}
                             <article>
                                     <div class="row">
@@ -67,6 +68,12 @@
                                     </div>
                                 </article>
                             {% endfor %}
+                            {% else %}
+                            <div class="actions">
+                                    <a href="/shops/create/" class="btn btn-primary">Nueva tienda</a>
+                            </div>
+                            {% endif %}
+                            
                             </div>
                 </div>
             </div>

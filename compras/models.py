@@ -30,3 +30,11 @@ class ProductoCliente(models.Model):
     id_lista = models.IntegerField()
     id_producto = models.IntegerField()
 
+class Tienda(models.Model):
+    id_pk = models.IntegerField(primary_key=True)
+    email = models.CharField(max_length = 40)
+    name = models.CharField(max_length = 40)
+    nombre_sucursal = models.CharField(max_length = 40)
+    direccion = models.CharField(max_length = 40)
+    ciudad = models.CharField(max_length = 40)
+    region = models.CharField(max_length = 40)

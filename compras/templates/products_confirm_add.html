@@ -26,32 +26,33 @@
     <title>Inicio :: Compras</title>
 </head>
 <body>
-        <div class="limiter">
-            
-                <div class="container-main">
-                        <div class="header">
-                            <h2><span class="lnr lnr-cart"></span>GlobalShop</h2>
-                            <div class="menu">
-                                <a href="/">Inicio</a>
-                                <a href="/lists/">Mis listas</a>
-                                <a href="/products/">Mis productos</a>
-                                <a href="/shopping/">Comprar</a>
-                                <a href="/cerrarsesion/">Cerrar sesión</a>
-                            </div>
+        <div class="limiter">    
+            <div class="container-main">
+                    <div class="header">
+                        <h2><span class="lnr lnr-cart"></span>GlobalShop</h2>
+                        <div class="menu">
+                            <a href="/">Inicio</a>
+                            <a href="/lists/">Mis listas</a>
+                            <a href="/products/">Mis productos</a>
+                            <a href="/shopping/">Comprar</a>
+                            <a href="/cerrarsesion/">Cerrar sesión</a>
                         </div>
-                        <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30 shop-container">
-                            <img class="header-image" src="{% static  "images/shop-header.png" %}">
-                            <h3>Bienvenido!</h3>
-                            <p>Con <strong>GlobalShop</strong> puedes organizar tus compras de una manera rápida y sencilla, solo debes seleccionar los productos que desees y agregarlos a tus listas previamente creadas!</p>
-                            <p>Puedes elegir distintos productos de distintas tiendas que tenemos para ti. Además, puedes crear tu propia tienda y comenzar a vender tus productos dentro de nuestra plataforma.</p>
-                            </br>
-                            <p>¡Los usuarios podrán agregar a sus listas tus productos, y tu podrás añadir los de ellos a las tuyas!</p>
-                            </br>
-                            <p>¿Que esperas? ¡Comienza organizando tus compras ahora!</p>
-                            <button class="login100-form-btn">Comenzar</button>
-                        </div>
-                </div>
+                    </div>
+                    <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30 shop-container">
+                        <img class="header-image" src="{% static  "images/shop-header.png" %}">
+                        <span class="login100-form-title p-b-55">
+                           Mis Productos
+                        </span>
+                        <form method="post">
+                                {% csrf_token %}
+                                <span class="login100-form-title p-b-55">
+                                    Agregar producto
+                                </span>
+                                <button type="submit" id="register-btn" class="btn btn-primary">Agregar</button>
+                            </form>        
+                    </div>
             </div>
+        </div>
     <!--===============================================================================================-->	
 	<script src="{% static  "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
     <!--===============================================================================================-->
