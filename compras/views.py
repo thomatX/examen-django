@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,logout, login as auth_login
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from .models import Usuario
+from .models import Usuario, Lista
+from random import randint
 
 # Create your views here.
 
@@ -16,6 +17,12 @@ def index(request):
 
 def lists(request):
     return render(request,'lists.html')
+
+def create_list(request):
+    return render(request,'create_list.html')
+
+def create_product(request):
+    return render(request,'create_product.html')
 
 def products(request):
     return render(request,'products.html')
@@ -51,6 +58,30 @@ def create_user(request):
     except Exception as ex:
         print(str(ex))
         return HttpResponse('<script>alert("Se ha ingresado un valor incorrecto... Intenta nuevamente."); window.location.href="/register/";</script>')
+
+def create_new_list(request):
+    try:
+        id_pk = randint(0,9999999)
+        print(str(id_pk))
+        total_productos = 0
+        total_productos_comprados = 0
+        total_real = 0
+        email = request.user.username
+        print(email)
+        name = request.POST.get('name')
+        print(name)
+        presupuestado = request.POST.get('presupuestado')
+        print(presupuestado)
+        lista = Lista(id_pk = id_pk, email = email, name = name, total_productos = total_productos, total_productos_comprados = total_productos_comprados, total_presupuestado = presupuestado, total_real = total_real)
+        lista.save()
+        return HttpResponse('<script>alert("Tu lista ha sido añadida correctamente!"); window.location.href="/lists/";</script>')
+    except Exception as ex:
+        print("Error: "+str(ex))
+        return HttpResponse('<script>alert("Ha ocurrido un error, intenta nuevamente!"); window.location.href="/lists/create/";</script>')
+
+def create_new_product(request):
+    return False
+
 
 @login_required(login_url='/login/')
 def cerrar_session(request):

@@ -20,7 +20,7 @@ class Lista(models.Model):
 class Producto(models.Model):
     id_pk = models.IntegerField(primary_key=True)
     name = models.CharField(max_length = 40)
-    description = models.CharField(max_length = 40)
+    description = models.CharField(max_length = 50)
     price = models.IntegerField()
     image = models.ImageField(upload_to='productos/')
 

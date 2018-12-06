@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static  "images/icons/favicon.ico" %}">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static  "vendor/bootstrap/css/bootstrap.min.css" %}">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static  "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static  "fonts/Linearicons-Free-v1.0.0/icon-font.min.css" %}">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static  "vendor/animate/animate.css" %}">
+    <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="{% static  "vendor/css-hamburgers/hamburgers.min.css" %}">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static  "vendor/select2/select2.min.css" %}">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static  "css/util.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static  "css/style.css" %}">
+    <!--===============================================================================================-->
+    <title>Crear Lista :: Compras</title>
+</head>
+<body>
+        <div class="limiter">
+            
+                <div class="container-main">
+                        <div class="header">
+                            <h2><span class="lnr lnr-cart"></span>TextLogo</h2>
+                            <div class="menu">
+                                <a href="/">Inicio</a>
+                                <a href="/lists/">Mis listas</a>
+                                <a href="/products/">Mis productos</a>
+                                <a href="/shopping/">Comprar</a>
+                                <a href="/profile/">Perfil</a>
+                                <a href="/cerrarsesion/">Cerrar sesión</a>
+                            </div>
+                        </div>
+                        <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30 shop-container">
+                            <img class="header-image" src="{% static  "images/shop-header.png" %}">
+                            <form action="/products/create/new/" method="POST" class="login100-form validate-form">
+                                {% csrf_token %}
+                                <span class="login100-form-title p-b-55">
+                                    Crear producto
+                                </span>
+            
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere un nombre válido">
+                                    <input class="input100" type="text" name="name" placeholder="Nombre producto">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                            <span class="lnr lnr-pencil"></span>
+                                    </span>
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Se requiere un nombre válido">
+                                    <input class="input100" type="text" name="name" max="50" placeholder="Descripción">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                            <span class="lnr lnr-pencil"></span>
+                                    </span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input m-b-16" data-validate = "El valor del producto debe ser mayor a 0">
+                                    <input class="input100" type="number" min="1" name="price" placeholder="Precio producto">
+                                    <span class="focus-input100"></span>
+                                    <span class="symbol-input100">
+                                        <span class="lnr lnr-flag"></span>
+                                    </span>
+                                </div>
+                                <p style="width: 100%;">Foto producto</p>
+                                    <input type="file" name="image" placeholder="Imagen producto">
+
+                                
+                                <div class="container-login100-form-btn p-t-25">
+                                    <button class="login100-form-btn">
+                                        Agregar producto a la venta
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
+    <!--===============================================================================================-->	
+	<script src="{% static  "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+    <!--===============================================================================================-->
+        <script src="{% static  "vendor/bootstrap/js/popper.js" %}"></script>
+        <script src="{% static  "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+    <!--===============================================================================================-->
+        <script src="{% static  "vendor/select2/select2.min.js" %}"></script>
+    <!--===============================================================================================-->
+        <script src="{% static  "js/main.js" %}"></script>
+</body>
+</html>
