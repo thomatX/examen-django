@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,logout, login as auth_login
 from django.http import HttpResponse
@@ -10,10 +10,7 @@ from random import randint
 
 @login_required(login_url='/login/')
 def index(request):
-    username = request.user.username
-    usuario = Usuario.objects.get(email=username)
-    print(str(usuario.name))
-    return render(request,'index.html',{'nombre':usuario.name})
+    return render(request,'index.html')
 
 def lists(request):
     email = request.user.username
@@ -102,7 +99,9 @@ def create_new_product(request):
         print(price)
         email = request.user.username
         print(email)
-        product = Producto(id_pk = id_pk,name = name, description = description, price = price, email = email)
+        image = request.FILES.get('product-image','no-image')
+        print(image)
+        product = Producto(id_pk = id_pk,name = name, description = description, price = price, email = email, image=image)
         product.save()
         return HttpResponse('<script>alert("Tu producto ha sido añadido correctamente!"); window.location.href="/products/";</script>')
     except Exception as ex:
@@ -110,6 +109,21 @@ def create_new_product(request):
         return HttpResponse('<script>alert("Ha ocurrido un error, intenta nuevamente!"); window.location.href="/products/create/";</script>')
 
 
+@login_required(login_url='/login/')
+def delete_product(request, pk, template_name='products_confirm_delete.html'):
+    product = get_object_or_404(Producto, pk=pk)    
+    if request.method=='POST':
+        product.delete()
+        return redirect('/products/')
+    return render(request, template_name, {'object':product})
+
+@login_required(login_url='/login/')
+def delete_list(request, pk, template_name='lists_confirm_delete.html'):
+    lista = get_object_or_404(Lista, pk=pk)    
+    if request.method=='POST':
+        lista.delete()
+        return redirect('/lists/')
+    return render(request, template_name, {'object':lista})
 
 @login_required(login_url='/login/')
 def cerrar_session(request):

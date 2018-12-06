@@ -23,6 +23,7 @@ class Producto(models.Model):
     description = models.CharField(max_length = 400)
     price = models.IntegerField()
     email = models.CharField(max_length = 40)
+    image = models.ImageField(upload_to = 'products/', default = 'products/default.png')
 
 class ProductoCliente(models.Model):
     id_producto_cliente = models.IntegerField(primary_key=True)

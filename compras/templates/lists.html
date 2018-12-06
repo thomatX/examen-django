@@ -36,7 +36,6 @@
                                 <a href="/lists/">Mis listas</a>
                                 <a href="/products/">Mis productos</a>
                                 <a href="/shopping/">Comprar</a>
-                                <a href="/profile/">Perfil</a>
                                 <a href="/cerrarsesion/">Cerrar sesión</a>
                             </div>
                         </div>
@@ -50,18 +49,27 @@
                             </div>
                             <table id="listas-tabla">
                                 <tr>
-                                    <th>Nombre</th><th>Productos</th><th>Comprados</th><th>Presupuestado</th><th>Real</th>
+                                    <th>Nombre</th>
+                                    <th>Productos</th>
+                                    <th>Comprados</th>
+                                    <th>Presupuestado</th>
+                                    <th>Real</th>
+                                    <th>Acciones</th>
                                 </tr>
                                 {% for i in lists %}
-                                    <script>console.log('{{i}}')</script>
-                                    <tr><td>{{i.name}}</td><td>{{i.total_productos}}</td><td>{{i.total_productos_comprados}}</td><td>{{i.total_presupuestado}}</td><td>{{i.total_real}}</td></tr>
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>{{i.total_productos}}</td>
+                                    <td>{{i.total_productos_comprados}}</td>
+                                    <td>{{i.total_presupuestado}}</td>
+                                    <td>{{i.total_real}}</td>
+                                    <td><a href="/lists/delete/{{i.pk}}"><i class="fa fa-trash"></i></a></td>
+                                </tr>
                                 {% endfor %}
                                 <tr>
 
                                 </tr>
                             </table>
-                            
-                            <button class="login100-form-btn">Comenzar</button>
                         </div>
                 </div>
             </div>
